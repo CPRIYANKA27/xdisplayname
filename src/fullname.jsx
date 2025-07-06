@@ -8,36 +8,43 @@ function DisplayName() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!first.trim() || !last.trim()) {
+
+    const trimmedFirst = first.trim();
+    const trimmedLast = last.trim();
+
+    if (!trimmedFirst || !trimmedLast) {
       setFull("");
       return;
     }
-    setFull(`${first.trim()} ${last.trim()}`);
+
+    setFull(`${trimmedFirst} ${trimmedLast}`);
   };
 
   return (
     <div className="box">
-      <h2>Full Name Display</h2>
+      <h1>Full Name Display</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="first-name">First Name:</label>
         <input
           id="first-name"
-          required
+          placeholder="First Name"
           value={first}
           onChange={(e) => setFirst(e.target.value)}
+          required
         />
-        <br />
         <label htmlFor="last-name">Last Name:</label>
         <input
           id="last-name"
-          required
+          placeholder="Last Name"
           value={last}
           onChange={(e) => setLast(e.target.value)}
+          required
         />
-        <br />
         <button type="submit">Submit</button>
       </form>
-      {full && <p>Full Name: {full}</p>}
+
+      {/* ✅ Helps test target it reliably */}
+      {full && <p data-testid="full-name">Full Name: {full}</p>}
     </div>
   );
 }
