@@ -1,0 +1,28 @@
+.box {
+  width: 300px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 1px solid black;
+  font-family: serif;
+}
+
+h2 {
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+input {
+  margin-left: 10px;
+  padding: 5px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 5px 15px;
+  cursor: pointer;
+}
