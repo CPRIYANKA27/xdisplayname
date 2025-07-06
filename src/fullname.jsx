@@ -8,41 +8,36 @@ function DisplayName() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    //console.log("First Name:", first);
-    //console.log("Last Name:", last);
-    setFull(`${first} ${last}`);
+    if (!first.trim() || !last.trim()) {
+      setFull("");
+      return;
+    }
+    setFull(`${first.trim()} ${last.trim()}`);
   };
 
   return (
     <div className="box">
       <h2>Full Name Display</h2>
       <form onSubmit={handleSubmit}>
-        <label>
-          First Name:
-          <input
-            required
-            value={first}
-            onChange={(e) => setFirst(e.target.value)}
-          />
-        </label>
+        <label htmlFor="first-name">First Name:</label>
+        <input
+          id="first-name"
+          required
+          value={first}
+          onChange={(e) => setFirst(e.target.value)}
+        />
         <br />
-        <label>
-          Last Name:
-          <input
-            required
-            value={last}
-            onChange={(e) => setLast(e.target.value)}
-          />
-        </label>
+        <label htmlFor="last-name">Last Name:</label>
+        <input
+          id="last-name"
+          required
+          value={last}
+          onChange={(e) => setLast(e.target.value)}
+        />
         <br />
         <button type="submit">Submit</button>
       </form>
-      {full && (
-        <p>
-          Full Name: <strong>{full}</strong>
-        </p>
-      )}
+      {full && <p>Full Name: {full}</p>}
     </div>
   );
 }
