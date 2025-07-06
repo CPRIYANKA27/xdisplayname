@@ -27,23 +27,24 @@ function DisplayName() {
         <label htmlFor="first-name">First Name:</label>
         <input
           id="first-name"
-          placeholder="First Name"
+          name="firstName"
           value={first}
           onChange={(e) => setFirst(e.target.value)}
           required
         />
+
         <label htmlFor="last-name">Last Name:</label>
         <input
           id="last-name"
-          placeholder="Last Name"
+          name="lastName"
           value={last}
           onChange={(e) => setLast(e.target.value)}
           required
         />
+
         <button type="submit">Submit</button>
       </form>
 
-      {/* ✅ Helps test target it reliably */}
       {full && <p data-testid="full-name">Full Name: {full}</p>}
     </div>
   );
